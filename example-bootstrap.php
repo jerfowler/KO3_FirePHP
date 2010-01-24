@@ -54,14 +54,14 @@ Kohana::init(array('base_url' => '/'));
 /**
  * Attach the file write to logging. Multiple writers are supported.
  */
+// Disabled the default file writer FirePHP so we can filter out FirePHP
+// A custom file writer is included with this module
 //Kohana::$log->attach(new Kohana_Log_File(APPPATH.'logs'));
 
 /**
  * Attach a file reader to config. Multiple readers are supported.
  */
-// Disabled the default file writer FirePHP so we can filter out FirePHP
-// A custom file writer is included with this module
-// Kohana::$config->attach(new Kohana_Config_File);
+Kohana::$config->attach(new Kohana_Config_File);
 
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.

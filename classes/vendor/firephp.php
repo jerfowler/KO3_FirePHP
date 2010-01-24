@@ -66,7 +66,7 @@ class Vendor_FirePHP extends FirePHP {
 
     public function session()
     {
-	return $this->tabledata($_SESSION, 'Session');
+	return (isset($_SESSION)) ? $this->tabledata($_SESSION, 'Session') : $this;
     }
 
     public function cookie()
