@@ -3,9 +3,6 @@
  *  Version 0.2
  *  Last changed: 2010-01-24
  *  Author: Jeremy Fowler (jeremy.f76@gmail.com)
- *
- *  Included FirePHP 0.3.1 (http://www.firephp.org/).
- * 
  *  Based on source from:
  *  Fire_Profiler by dlib: http://learn.kohanaphp.com/2008/07/21/introducing-fire-profiler/
  *  KO3 conversion by ralf: http://code.goldenzazu.de/fireprofiler.php

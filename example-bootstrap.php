@@ -61,16 +61,18 @@ Kohana::init(array('base_url' => '/'));
 /**
  * Attach a file reader to config. Multiple readers are supported.
  */
-Kohana::$config->attach(new Kohana_Config_File);
+ Kohana::$config->attach(new Kohana_Config_File);
 
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
+	 // FirePHP Needs to be before database in order to get query data
+	 'firephp'    => MODPATH.'firephp',    // FirePHP library
+
 //	 'auth'       => MODPATH.'auth',       // Basic authentication
 //	 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 //	 'database'   => MODPATH.'database',   // Database access
-	 'firephp'    => MODPATH.'firephp',    // FirePHP library (be sure to enable)
 //	 'image'      => MODPATH.'image',      // Image manipulation
 //	 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 //	 'pagination' => MODPATH.'pagination', // Paging of results
@@ -139,7 +141,11 @@ echo Request::instance()
  * Alternatively, you can extend one of the FirePHP Controllers
  */
 FirePHP_Profiler::instance()
+	->group('KO3 FirePHP Application Profiler')
 	->post()
+	->get()
 	->session()
+	->cookie()
 	->database()
-	->benchmark();
+	->benchmark()
+	->groupEnd();
