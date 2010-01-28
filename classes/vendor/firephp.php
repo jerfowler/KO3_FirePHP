@@ -252,11 +252,11 @@ class Vendor_FirePHP extends FirePHP {
 	{
 	    if ($this->get_config('database.select', FALSE))
 	    {
-		if ($result->count() > 0)
+		$rows = $result->as_array();
+		$result->rewind();
+		if (count($rows) > 0)
 		{
 		    $store['fb'] = 'table';
-		    $rows = $result->as_array();
-		    $result->rewind();
 		    $store['data'] = array_slice($rows, 0, $max);
 
 		}
