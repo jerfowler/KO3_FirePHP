@@ -49,7 +49,7 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
  * - boolean  profile     enable or disable internal profiling               TRUE
  * - boolean  caching     enable or disable internal caching                 FALSE
  */
-Kohana::init(array('base_url' => '/'));
+Kohana::init(array('base_url' => '/kohana/'));
 
 /**
  * Attach the file write to logging. Multiple writers are supported.
@@ -70,9 +70,9 @@ Kohana::modules(array(
 	 // FirePHP Needs to be before database in order to get query data
 	 'firephp'    => MODPATH.'firephp',    // FirePHP library
 
-//	 'auth'       => MODPATH.'auth',       // Basic authentication
+	 'auth'       => MODPATH.'auth',       // Basic authentication
 //	 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-//	 'database'   => MODPATH.'database',   // Database access
+	 'database'   => MODPATH.'database',   // Database access
 //	 'image'      => MODPATH.'image',      // Image manipulation
 //	 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 //	 'pagination' => MODPATH.'pagination', // Paging of results
@@ -116,6 +116,11 @@ Kohana::$log->add('FirePHP::DUMP', array('key' => 2, 'variable' => $demo));
 Kohana::$log->add('FirePHP::TRACE', 'FirePHP Trace...');
 Kohana::$log->add('FirePHP::GROUP_END', '')->write();
 
+// However, its much easier to just do this...
+// All FirePHP commands are available, plus a few new ones...
+Fire::log('Hi Mom!');
+Fire::group('My Group')->warn('Warning!')->groupEnd();
+Fire::error('UH OH! Now, look what you did it!');
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
@@ -123,7 +128,7 @@ Kohana::$log->add('FirePHP::GROUP_END', '')->write();
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'page',
+		'controller' => 'welcome',
 		'action'     => 'index',
 	));
 
@@ -140,12 +145,12 @@ echo Request::instance()
  * Run the at the end of the bootstap to profile the entire application
  * Alternatively, you can extend one of the FirePHP Controllers
  */
+
+Fire::warn('Be sure to configure FirePHP authorization for productions sites. Don\'t want just anybody viewing this stuff...');
 FirePHP_Profiler::instance()
-	->group('KO3 FirePHP Application Profiler')
-	->post()
-	->get()
-	->session()
-	->cookie()
+	->group('KO3 FirePHP Profiler Results:')
+	->superglobals() // New Superglobals method to show them all...
 	->database()
 	->benchmark()
 	->groupEnd();
+
