@@ -10,7 +10,7 @@ class FirePHP_Fire {
 	return FirePHP_Profiler::instance()->set_config($key, $value);
     }
 
-    public static function set_enabled(bool $enabled)
+    public static function set_enabled( $enabled )
     {
 	return FirePHP_Profiler::instance()->set_enabled($enabled);
     }
