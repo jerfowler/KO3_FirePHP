@@ -21,7 +21,7 @@ class Vendor_FirePHP extends FirePHP {
 
     public function  __construct(array $config=Null)
     {
-	parent::__construct();
+	//parent::__construct();
 	// just in case we're referenced while initializing...
 	self::$instance = $this;
 	$this->_init($config);
@@ -456,7 +456,7 @@ class Vendor_FirePHP extends FirePHP {
 	return $this;
     }
 
-    public function table($Object, $Label = null, $Options = array())
+    public function table($Label, $Table, $Options = array())
     {
 	parent::table($Label, $Table, $Options);
 	return $this;
