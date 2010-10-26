@@ -420,15 +420,15 @@ class Vendor_FirePHP extends FirePHP {
 	}
     }
 
-    public function dump($Key, $Variable)
+    public function dump($Object, $Label = null, $Options = array())
     {
-	parent::dump($Key, $Variable);
+	parent::dump($Key, $Variable, $Options);
 	return $this;
     }
 
-    public function error($Object, $Label=null)
+    public function error($Object, $Label = null, $Options = array())
     {
-	parent::error($Object, $Label);
+	parent::error($Object, $Label, $Options);
 	return $this;
     }
 
@@ -444,21 +444,21 @@ class Vendor_FirePHP extends FirePHP {
 	return $this;
     }
 
-    public function info($Object, $Label=null)
+    public function info($Object, $Label = null, $Options = array())
     {
-	parent::info($Object, $Label);
+	parent::info($Object, $Label, $Options);
 	return $this;
     }
 
-    public function log($Object, $Label=null)
+    public function log($Object, $Label = null, $Options = array())
     {
-	parent::log($Object, $Label);
+	parent::log($Object, $Label, $Options);
 	return $this;
     }
 
-    public function table($Label, $Table)
+    public function table($Object, $Label = null, $Options = array())
     {
-	parent::table($Label, $Table);
+	parent::table($Label, $Table, $Options);
 	return $this;
     }
 
@@ -468,9 +468,9 @@ class Vendor_FirePHP extends FirePHP {
 	return $this;
     }
 
-    public function warn($Object, $Label=null)
+    public function warn($Object, $Label = null, $Options = array())
     {
-	parent::warn($Object, $Label);
+	parent::warn($Object, $Label, $Options);
 	return $this;
     }
 
