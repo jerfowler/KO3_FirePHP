@@ -420,7 +420,7 @@ class Vendor_FirePHP extends FirePHP {
 	}
     }
 
-    public function dump($Object, $Label = null, $Options = array())
+    public function dump($Key, $Variable, $Options = array())
     {
 	parent::dump($Key, $Variable, $Options);
 	return $this;
