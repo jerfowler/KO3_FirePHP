@@ -2,7 +2,7 @@
 /**
  *  KO3 FirePHP and Profiler
  *  Version 0.3
- *  Last changed: 2010-01-25
+ *  Last changed: 2010-11-8
  *  Based on:
  *  Fire_Profiler by dlib: http://learn.kohanaphp.com/2008/07/21/introducing-fire-profiler/
  *  KO3 conversion by ralf: http://code.goldenzazu.de/fireprofiler.php
