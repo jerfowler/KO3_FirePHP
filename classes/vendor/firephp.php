@@ -38,7 +38,7 @@ class Vendor_FirePHP extends FirePHP {
 	$this->_config = (isset($config)) ? Arr::merge($this->_config, $config) : $this->_config;
 	$this->setOptions($this->get_config('firephp', $this->getOptions()));
 	$this->enabled = $this->get_enabled();
-	$this->info('FirePHP Initialized...');
+	//$this->info('FirePHP Initialized...');
     }
 
     public function get_config($key, $default = NULL)
@@ -78,7 +78,7 @@ class Vendor_FirePHP extends FirePHP {
 	$this->set_enabled($Enabled);
     }
     
-    public function set_enabled(bool $enabled) 
+    public function set_enabled($enabled) 
     {
 	return $this->set_config('enabled', $enabled);
     }
@@ -400,6 +400,7 @@ class Vendor_FirePHP extends FirePHP {
 		    if ($num === 0) $table[$num]['row_num'] = '';
 		    $table[$num+1]['row_num'] = $num+1;
 		}
+		if (is_array($row))
 		foreach ($row as $field => $value)
 		{
 		    if ($num === 0)
